@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let globalValue = 1000;
+    //현재 실행중인 내부함수의 외부함수
+    function outerFunc(){
+      let outerLocalValue = 100;
+      //outerFunc의 변수에 접근이 가능하다. 
+      function innerFunc() {
+        let innerLocalValue = 30;
+        // innerLocalValue 만큼 값을 반환
+        return innerLocalValue;
+      }
+      //1000+100+30? 답 1130일거 같다.
+      return globalValue + outerLocalValue + innerFunc();
+    }
+    console.log(outerFunc());
+  </script>
+</body>
+</html>
